@@ -1,67 +1,89 @@
 <template>
-<div id="app">
-    <div class='width-container'>
-        <InputSwitch class='night-mode-switch' :start=false text='Night Mode' _id='nightModeSwitch' />
-
-        <header class='header'>
-            <div class='copy'>
-                <h1>Mark Shull</h1>
-                <h2>Front-End Web Developer</h2>
-                <p class='line-left'>Ipsum Blaster sullust bantha sitrep R2-D2, cantina carbonite C-3PO protocol droid lando river. River bothan boomer frak tatooine. Frack vader light saber skywalker naboo firefly fodder C-3PO dalek.</p>
-                <div class='cta-buttons'>
-                    <CTAButton text='Contact' variant='primary' to = '/contact' />
-                    <CTAButton text='Resume' variant='secondary' to = '/resume' />
-                </div>
+<div class = 'container'>
+    <header class='header'>
+        <div class='copy'>
+            <h1>Mark Shull</h1>
+            <h2>Front-End Designer/Dev</h2>
+            <p class='line-left'>Ipsum Blaster sullust bantha sitrep R2-D2, cantina carbonite C-3PO protocol droid lando river. River bothan boomer frak tatooine. Frack vader light saber skywalker naboo firefly fodder C-3PO dalek.</p>
+            <div class='cta-buttons'>
+                <CTAButton text='Contact' variant='primary' to = '/contact' />
+                <CTAButton text='Resume' variant='secondary' to = '/resume' />
             </div>
+        </div>
 
-            <div>
-                <h2 class = 'shadow-heading' data-content = 'Recent Favs'>Recent Favs</h2>
-                <section class='recent-fav-container'>
-                    <RecentFav heading='Downdown Menu' preHeading='Fun and interactive' tag='Vue' class='recent-fav' />
-                    <RecentFav heading='Downdown Menu' preHeading='Fun and interactive' tag='Vue' class='recent-fav' />
-                    <RecentFav heading='Downdown Menu' preHeading='Fun and interactive' tag='Vue' class='recent-fav' />
-                </section>
-            </div>
-        </header>
+        <div>
+            <h2 class = 'shadow-heading' data-content = 'Recent Favs'>
+                <svg viewBox="0 0 24 24">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#A278FF;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#71D8FF;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path fill="url(#grad1)" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+                </svg>
+                <span>Recent Favs</span>
+            </h2>
+            <section class='recent-fav-container'>
+                <RecentFav 
+                    heading='Downdown Menu' 
+                    preHeading='Fun and interactive' 
+                    tag='Vue' 
+                    class='recent-fav' 
+                />
+                <RecentFav 
+                    heading='Downdown Menu' 
+                    preHeading='Fun and interactive' 
+                    tag='Vue' 
+                    class='recent-fav' 
+                />
+                <RecentFav 
+                    heading='Downdown Menu' 
+                    preHeading='Fun and interactive' 
+                    tag='Vue' 
+                    class='recent-fav' 
+                />
+            </section>
+        </div>
+    </header>
 
-        <TabbedContent :subNavItems='subNavItems' :initalActiveTab='0'>
+    <TabbedContent :subNavItems='subNavItems' :initalActiveTab='0'>
 
-            <template slot='Work'>
-                <FeaturedCard title='Animated Navigation' subTitle='A little animated navigation marker' :tags="['CSS', 'Vanilla JS']" />
-                <FeaturedCard title='Animated Accordion' subTitle='A lil description' :tags="['CSS', 'Vanilla JS']" />
-                <FeaturedCard title='Animated Accordion' subTitle='A lil description' :tags="['CSS', 'Vanilla JS']" />
-            </template>
+        <template slot='Work'>
+            
+            <FeaturedCard 
+                v-for = '(item, index) in portfolioItems.work' 
+                :key = 'index' 
+                :item = 'item'
+            />
+        </template>
+        
 
-            <template slot='Projects'>
-                <FeaturedCard title='New Portfolio' subTitle='Hey, wait a second.' :tags="['Vue', 'CSS']" />
-                <FeaturedCard title='Social Network App Design' subTitle="Inspired by Google's newest Material Design iteration" :tags="['CSS', 'Vanilla JS']" />
-                <FeaturedCard title='Ominous Weather Dashboard' subTitle='Art deco inspired dashboard concept' :tags="['CSS', 'Vanilla JS']" />
-            </template>
+        <template slot='Projects'>
+            <FeaturedCard 
+                v-for = '(item, index) in portfolioItems.projects' 
+                :key = 'index' 
+                :item = 'item'
+            />
+            <!-- <FeaturedCard title='New Portfolio' subTitle='Hey, wait a second.' :tags="['Vue', 'CSS']" />
+            <FeaturedCard title='Social Network App Design' subTitle="Inspired by Google's newest Material Design iteration" :tags="['CSS', 'Vanilla JS']" />
+            <FeaturedCard title='Ominous Weather Dashboard' subTitle='Art deco inspired dashboard concept' :tags="['CSS', 'Vanilla JS']" /> -->
+        </template>
+        <template slot='Demos'>
+            <FeaturedCard 
+                v-for = '(item, index) in portfolioItems.demos' 
+                :key = 'index' 
+                :item = 'item'
+            />
+        </template>
 
-            <template slot='Pens'>
-                <FeaturedCard title='Ominous Weather Dashboard' subTitle='Art deco inspired dashboard concept' :tags="['CSS', 'Vanilla JS']" />
-                <FeaturedCard title='Animated Navigation' subTitle='A little animated navigation marker' :tags="['CSS', 'Vanilla JS']" />
-                <FeaturedCard title='Animated Accordion' subTitle='A lil description' :tags="['CSS', 'Vanilla JS']" />
-                <FeaturedCard title='Animated Accordion' subTitle='A lil description' :tags="['CSS', 'Vanilla JS']" />
-            </template>
-
-            <template slot='Other'>
-                <FeaturedCard title='Ominous Weather Dashboard' subTitle='Art deco inspired dashboard concept' :tags="['CSS', 'Vanilla JS']" />
-                <FeaturedCard title='Animated Navigation' subTitle='A little animated navigation marker' :tags="['CSS', 'Vanilla JS']" />
-                <FeaturedCard title='Animated Accordion' subTitle='A lil description' :tags="['CSS', 'Vanilla JS']" />
-                <FeaturedCard title='Animated Accordion' subTitle='A lil description' :tags="['CSS', 'Vanilla JS']" />
-            </template>
-
-        </TabbedContent>
-
-    </div>
+    </TabbedContent>
 </div>
 </template>
 
 <script>
 import RecentFav from "./../components/RecentFav.vue";
 import CTAButton from "./../components/CTAButton.vue";
-import InputSwitch from "./../components/InputSwitch.vue";
 import TabbedContent from "./../components/TabbedContent.vue";
 import FeaturedCard from "./../components/FeaturedCard.vue";
 
@@ -69,6 +91,7 @@ export default {
     name: "app",
     data() {
         return {
+            
             subNavItems: [
                 {
                     itemText: 'Work',
@@ -79,65 +102,156 @@ export default {
                     color: '#7692FF'
                 },
                 {
-                    itemText: 'Pens',
+                    itemText: 'Demos',
                     color: '#2DE1FC'
                 },
-                {
-                    itemText: 'Other',
-                    color: '#2AFC98'
-                }
-            ]
+
+            ],
+
+            portfolioItems: { 
+
+                work: [
+                    {
+                        name: 'Ditto Admin Dashboard',
+                        description: 'This is a description.',
+                        image: require('@/assets/ominous.png'),
+                        tags: ['Vue', 'Vuex', 'TypeScript', 'Backbone' , 'Node'],
+                        path: ''
+                    },
+                    {
+                        name: 'Squirrels Marketing Site',
+                        description: 'This is a description.',
+                        image: require('@/assets/sqDark.png'),
+                        tags: ['Vue'],
+                        path: ''
+                    }
+                ],
+
+                demos: [
+                    
+                    {
+                        name: 'Admin Dashboard Concept',
+                        description: 'This is a description.',
+                        image: require('@/assets/dashboard.png'),
+                        tags: ['Vue', 'Product Design'],
+                        favorite: true,
+                        path: ''
+                    },
+
+                    {
+                        name: 'Animated Nav Marker',
+                        description: 'This is a description.',
+                        image: require('@/assets/animatedNav.png'),
+                        tags: ['Vanilla JS'],
+                        path: ''
+                    },
+
+                    {
+                        name: 'Animated Accordian',
+                        description: 'This is a description.',
+                        image: require('@/assets/animatedAccordian.png'),
+                        tags: ['Vanilla JS', 'CSS'],
+                        path: ''
+                    },
+
+                    {
+                        name: 'Dynamic Dropdown Overflow Shadow',
+                        description: 'This is a description.',
+                        image: require('@/assets/dropdown.png'),
+                        tags: ['Vanilla JS', 'CSS'],
+                        path: ''
+                    }
+                ],
+
+                projects: [
+                    {
+                        name: 'New Portfolio',
+                        description: 'This is a description.',
+                        image: require('@/assets/portfolio.png'),
+                        tags: ['Vue', 'Design'],
+                        easterEgg: true,
+                        path: ''
+                    },
+
+                    {
+                        name: 'Ominous Weather Dashboard',
+                        description: 'Weather dashboard & branding concept. Art deco inspired.',
+                        image: require('@/assets/ominous.png'),
+                        tags: ['Vanilla JS', 'Design', 'CSS'],
+                        favorite: true,
+                        path: ''
+                    },
+
+                    {
+                        name: 'Twitch Livestream Overlay',
+                        description: 'This is a description.',
+                        image: require('@/assets/animatedAccordian.png'),
+                        tags: ['Vanilla JS', 'CSS'],
+                        path: 'projects/twitch-overlay'
+                    },
+                    
+                    {
+                        name: 'Social Media App Design',
+                        description: 'This is a description.',
+                        image: require('@/assets/portfolio.png'),
+                        tags: ['Design', 'UX', 'Adobe XD'],
+                        favorite: true,
+                        path: ''
+                    },
+
+                    {
+                        name: 'Exercise Tools',
+                        description: 'This is a description.',
+                        image: require('@/assets/portfolio.png'),
+                        tags: ['Design', 'CSS'],
+                        path: ''
+                    },
+
+                    {
+                        name: 'Game Finder',
+                        description: 'A tool to help discover new video games, stylized as a retro arcade machine.',
+                        image: require('@/assets/gameFinder.png'),
+                        tags: ['Design', 'CSS'],
+                        path: ''
+                    },
+                ]
+
+            }
         };
     },
 
     components: {
         RecentFav,
         CTAButton,
-        InputSwitch,
         TabbedContent,
         FeaturedCard
     }
 };
 </script>
 
-<style>
+<style scoped>
 @import './../assets/variables.css';
 
-#app {
-    font-family: var(--font-family);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
-    margin-top: 0;
-}
-
-h1,
-h2 {
-    color: #404040;
-}
-
-button {
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+.container {
+    max-width:1200px;
+    width:90%;
+    margin:0 auto;
 }
 
 .shadow-heading {
     position:relative;
+}
+.shadow-heading svg {
+    height:40px;
+    width:40px;
+    margin-right:0.5em;
 }
 .shadow-heading:after {
     content: attr(data-content);
     position:absolute;
     display:block;
     bottom:0;
-    left:0;
+    left:0.75em;
     font-size:2.8em;
     color:inherit;
     z-index:-1;
@@ -145,26 +259,6 @@ button {
     line-height:100%;
 }
 
-.width-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 90%;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: var(--bg-color);
-}
 
 .tab-content {
     display: flex;
@@ -200,24 +294,14 @@ body {
     text-align: left;
 }
 
-.copy h1 {
-    letter-spacing: 0.05em;
-    font-size: 2.8em;
-    text-transform: uppercase;
-    font-weight: 800;
-    margin-top: 0;
-    margin-bottom: 0;
-}
+
 
 .copy h1 span {
     display: block;
     white-space: nowrap;
 }
 
-.copy h2 {
-    margin: 0;
-    font-weight: 400;
-}
+
 
 .copy p {
     font-weight: 400;
@@ -252,7 +336,7 @@ body {
     display: block;
     left: 0;
     top: 0;
-    width: 0.2em;
+    width: 1px;
     height: 100%;
     background: #A278FF;
 }

@@ -78,7 +78,7 @@ export default {
 
 
 .button:hover {
-    box-shadow:0 11px 14px rgba(11, 190, 30, 0.1);
+    /* box-shadow:0 11px 14px rgba(11, 190, 30, 0.1); */
 }
 .button.primary:hover {
     color: #A278FF;

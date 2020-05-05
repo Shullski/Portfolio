@@ -74,9 +74,33 @@ export default {
     background: var(--accent-gradient);
     transform-origin:left;
     will-change:transform;
-    border-radius:5px;
     transition: transform 0.75s cubic-bezier(.55,0,.1,1),
     background-color 0.65s 0.1s ease, box-shadow 0.65s 0.1s ease;
+    z-index:-1;
+}
+
+.marker:after {
+    content:'';
+    display:block;
+    position:absolute;
+    z-index:1;
+    left:0;
+    bottom:calc(100% - 1px);
+    width:100%;
+    height:10px;
+    background: var(--accent-gradient);
+    opacity:0.6;
+}
+.marker:before {
+    content:'';
+    display:block;
+    position:absolute;
+    z-index:2;
+    left:0;
+    bottom:calc(100% - 1px);
+    width:100%;
+    height:10px;
+    background: linear-gradient(to top, transparent,rgba(14, 14, 16, 0.8),rgba(14, 14, 16, 1));
 }
 
 .item {

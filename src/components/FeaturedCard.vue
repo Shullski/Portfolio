@@ -1,12 +1,23 @@
 <template>
-<router-link class = 'card' :to="'/item/' +  title" >
- 
-    <div class='image'></div>
+<router-link class = 'card' :to='item.path' >
+<!-- <button class = 'card' @click = 'clickHandler($event)'> -->
+    <div class='image' :style="{ background: 'url('+ item.image +') center center / cover no-repeat'}"></div>
     <section class='content'>
-        <h3>{{ title }}</h3>
-        <span class = 'subtitle'>{{ subTitle }}</span>
-        <div v-if='tags' class='tags'>
-            <span v-for='(tag, index) in tags' :key='index'>{{ tag }}</span>
+        <h3>
+            <svg v-if = 'item.favorite' viewBox="0 0 24 24">
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#A278FF;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#71D8FF;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path fill="url(#grad1)" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+            </svg>
+            {{ item.name }}
+        </h3>
+        <span class = 'description'>{{ item.description }}</span>
+        <div v-if='item.tags' class='tags'>
+            <span v-for='(tag, index) in item.tags' :key='index'>{{ tag }}</span>
         </div>
     </section>
 </router-link>
@@ -15,11 +26,14 @@
 <script>
 export default {
     name: 'FeaturedCard',
+    methods: {
+        clickHandler(e) {
+            console.log(e);
+
+        }
+    },
     props: {
-        title: String,
-        subTitle: String,
-        link: String,
-        tags: Array
+        item: Object
     }
 }
 </script>
@@ -30,6 +44,8 @@ export default {
 .card {
     display: flex;
     flex-direction: column;
+    align-items:stretch;
+    text-align:left;
     box-shadow: 0 2px 8px rgba(0, 0,0,0.2), 0 0 1px rgba(0,0,0,0.5);
     cursor: pointer;
     will-change:transform, box-shadow;
@@ -52,10 +68,37 @@ export default {
 
 
 .image {
-    background: url('./../assets/portfolio.png') center center no-repeat;
-    background-size: cover;
+    position:relative;
     height: 125px;
     border-bottom: 1px solid #323234;
+    overflow:hidden;
+}
+
+.card svg {
+    height:20px;
+    width:20px;
+}
+
+.image:after {
+    content: '';
+    display:block;
+    position:absolute;
+    height:100%;
+    width:200%;
+    bottom:55%;
+    left:0;
+    background: linear-gradient(to top, rgba(255,255,255,0.04),rgba(255,255,255,0.00), rgba(255,255,255,0.0));
+    transform:rotate(15deg);
+    transition: transform 0.25s cubic-bezier(.4,0,.2,1.5);
+    will-change:transform;
+}
+
+.card:hover .image:after {
+    transform:rotate(15deg) translateY(8px);
+}
+
+.card:active .image:after {
+    transform:rotate(15deg) translateY(5px);
 }
 
 .content {
@@ -76,7 +119,7 @@ export default {
     -webkit-text-fill-color: transparent;
 }
 
-.content .subtitle {
+.content .description {
     margin: 0;
     margin-bottom: 1em;
     font-weight: 400;
@@ -87,18 +130,20 @@ export default {
 
 .tags {
     display: flex;
+    flex-wrap:wrap;
 }
 
 .tags span {
     font-size: 0.9em;
     color: #A278FF;
-    opacity: 0.8;
+    opacity: 0.7;
     display: block;
     font-weight: 600;
     padding: 0.2em 0.4em;
     border: 2px solid #A278FF;
     transition: opacity 0.25s ease;
     will-change:opacity;
+    margin-bottom:0.5em;
 }
 
 .card:hover .tags span {

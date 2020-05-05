@@ -43,7 +43,7 @@ export default {
 }
 
 .card svg {
-    stroke: #A278FF;;
+    stroke: #71D8FF;
 }
 .tag {
     background: var(--accent-gradient);
@@ -94,7 +94,7 @@ h3:after {
 
 .card:hover h3 {
     color:white;
-    text-shadow:0 3px 5px rgba(0,70,20,0.35), 0 0 10px #323234;
+    text-shadow:0 3px 5px rgba(0,0,0,0.35), 0 0 10px #323234;
 }
 .card:hover h3:after {
     transform: none

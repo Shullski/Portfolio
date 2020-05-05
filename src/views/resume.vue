@@ -90,7 +90,7 @@ button {
     position:absolute;
     display:block;
     bottom:0;
-    left:0;
+    left:0.75em;
     font-size:2.8em;
     color:inherit;
     z-index:-1;
@@ -98,11 +98,6 @@ button {
     line-height:100%;
 }
 
-.width-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 90%;
-}
 
 * {
     box-sizing: border-box;
@@ -205,7 +200,7 @@ body {
     display: block;
     left: 0;
     top: 0;
-    width: 0.2em;
+    width: 1px;
     height: 100%;
     background: #A278FF;
 }
