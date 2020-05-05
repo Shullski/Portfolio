@@ -1,0 +1,33 @@
+:root {
+
+    /* ----- Primary Styles ----- */
+    /* ------------------------- */
+    --font-family: "Poppins", Helvetica, Arial, sans-serif;
+
+    --dark__bgColor--body: #1C1E2C;
+    --light__bgColor--body: #0E0E10;
+    
+    --dark__card-bg:#18181B;
+    --light__card-bg: #18181B;
+
+    --dark__accent-gradient: linear-gradient(to top right, #A278FF, #71D8FF );
+    --light__accent-gradient: linear-gradient(to top right, #A278FF, #71D8FF );
+
+    /* ----- FONT STYLES ----- */
+    /* ------------------------- */
+    --light__fontColor--accent: #A278FF;
+
+    /* ☀️ */
+    /* 🌙 */
+     --dark__fontColor--accent: #2bec95;
+     --dark__fontColor--heading: white;
+     --dark__fontColor--secondary-heading: rgba(255,255,255,0.08);
+     --dark__fontColor--content: rgba(255,255,255,0.08);
+     --dark__fontColor--secondary-content: rgba(255,255,255,0.06);
+
+    /* ----- Use the Styles ----- */
+    /* ------------------------- */
+     --bg-color: var(--light__bgColor--body);
+     --card-bg: var(--light__card-bg);
+     --accent-gradient: var(--light__accent-gradient);
+}
