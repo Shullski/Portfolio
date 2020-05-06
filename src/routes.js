@@ -1,25 +1,25 @@
 import Home from './views/home'
 import Project from './views/project'
 import Resume from './views/resume'
-import TwitchOverlay from './views/projects/twitchOverlay'
 
 export const routes = [
     {
         path: '/',
-        component: Home
+        component: Home,
+        props: true
     },
+
     {
         path: '/resume',
-        component: Resume
+        name: 'resume',
+        component: Resume,
+        props: true
     },
+
     {
-        path: '/item/:id',
-        component: Project
+        path: '/project/:item.name',
+        name: 'project',
+        component: Project,
+        props: true
     },
-    {
-        path: '/projects/twitch-overlay',
-        component: TwitchOverlay
-    },
-    
-    
 ];

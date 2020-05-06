@@ -1,6 +1,5 @@
 <template>
-<router-link class = 'card' :to='item.path' >
-<!-- <button class = 'card' @click = 'clickHandler($event)'> -->
+<router-link class = 'card' :to="{ name: item.pathName, params:{ item: item } }" >
     <div class='image' :style="{ background: 'url('+ item.image +') center center / cover no-repeat'}"></div>
     <section class='content'>
         <h3>
@@ -124,9 +123,8 @@ export default {
     margin-bottom: 1em;
     font-weight: 400;
     flex: 1;
-    color: #7b7b7b;
+    color: rgba(255,255,255,0.6);
 }
-
 
 .tags {
     display: flex;
