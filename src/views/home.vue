@@ -1,6 +1,7 @@
 <template>
 <div class = 'container'>
     <header class='header'>
+        
         <div class='copy'>
             <h1>Mark Shull</h1>
             <h2>Front-End Designer/Dev</h2>
@@ -112,67 +113,17 @@ export default {
 
                 work: [
                     {
-                        name: 'Ditto Admin Dashboard',
-                        description: 'This is a description.',
+                        name: 'Ditto Admin Portal',
+                        description: "Work I've done on the Ditto Admin Portal for Squirrels.",
                         image: require('@/assets/ominous.png'),
                         tags: ['Vue', 'Vuex', 'TypeScript', 'Backbone' , 'Node'],
                         path: ''
                     },
                     {
                         name: 'Squirrels Marketing Site',
-                        description: 'This is a description.',
+                        description: "Work & improvements to the Squirrels marketing site.",
                         image: require('@/assets/sqDark.png'),
                         tags: ['Vue'],
-                        path: ''
-                    }
-                ],
-
-                demos: [
-                    
-                    {
-                        name: 'Admin Dashboard Concept',
-                        description: 'This is a description.',
-                        image: require('@/assets/dashboard.png'),
-                        paragraphs: [
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
-                        ],
-                        tags: ['Vue', 'Product Design'],
-                        favorite: true,
-
-                        pathName: 'project',
-                    },
-
-
-
-
-
-
-
-
-
-
-                    {
-                        name: 'Animated Nav Marker',
-                        description: 'This is a description.',
-                        image: require('@/assets/animatedNav.png'),
-                        tags: ['Vanilla JS'],
-                        path: ''
-                    },
-
-                    {
-                        name: 'Animated Accordian',
-                        description: 'This is a description.',
-                        image: require('@/assets/animatedAccordian.png'),
-                        tags: ['Vanilla JS', 'CSS'],
-                        path: ''
-                    },
-
-                    {
-                        name: 'Dynamic Dropdown Overflow Shadow',
-                        description: 'This is a description.',
-                        image: require('@/assets/dropdown.png'),
-                        tags: ['Vanilla JS', 'CSS'],
                         path: ''
                     }
                 ],
@@ -184,7 +135,7 @@ export default {
                         image: require('@/assets/portfolio.png'),
                         tags: ['Vue', 'Design'],
                         easterEgg: true,
-                        path: ''
+                        path: '/new-portfolio'
                     },
 
                     {
@@ -193,15 +144,15 @@ export default {
                         image: require('@/assets/ominous.png'),
                         tags: ['Vanilla JS', 'Design', 'CSS'],
                         favorite: true,
-                        path: ''
+                        path: '/ominous-weather'
                     },
 
                     {
                         name: 'Twitch Livestream Overlay',
-                        description: 'This is a description.',
+                        description: 'Twitch Stream overlay using Adobe XD, AfterEffects, and Streamlabs OBS.',
                         image: require('@/assets/animatedAccordian.png'),
                         tags: ['Vanilla JS', 'CSS'],
-                        path: 'projects/twitch-overlay'
+                        path: '/twitch-overlay'
                     },
                     
                     {
@@ -210,15 +161,15 @@ export default {
                         image: require('@/assets/portfolio.png'),
                         tags: ['Design', 'UX', 'Adobe XD'],
                         favorite: true,
-                        path: ''
+                        path: '/social-media-app'
                     },
 
                     {
                         name: 'Exercise Tools',
-                        description: 'This is a description.',
+                        description: 'Various calculators helpful for exercise & weightlifting.',
                         image: require('@/assets/exerciseTools.png'),
                         tags: ['Design', 'CSS'],
-                        path: ''
+                        path: '/exercise-tools'
                     },
 
                     {
@@ -226,9 +177,51 @@ export default {
                         description: 'A tool to help discover new video games, stylized as a retro arcade machine.',
                         image: require('@/assets/gameFinder.png'),
                         tags: ['Design', 'CSS'],
-                        path: ''
+                        path: '/game-finder'
                     },
-                ]
+                ],
+
+                demos: [
+                    
+                    {
+                        name: 'Admin Dashboard Concept',
+                        description: 'An admin dashboard concept inspired by the UX of Slack, Stream, Discord, and others.',
+                        image: require('@/assets/dashboard.png'),
+                        paragraphs: [
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                        ],
+                        tags: ['Vue', 'Product Design'],
+                        favorite: true,
+
+                        path: '/admin-dashboard',
+                    },
+
+                    {
+                        name: 'Animated Nav Marker',
+                        description: "Hey, stop animating stuff's 'position'.",
+                        image: require('@/assets/animatedNav.png'),
+                        tags: ['Vanilla JS'],
+                        path: '/animated-nav-marker'
+                    },
+
+                    {
+                        name: 'Animated Accordian',
+                        description: 'A little accordian interaction that inspired an official accoridan component at Squirrels.',
+                        image: require('@/assets/animatedAccordian.png'),
+                        tags: ['Vanilla JS', 'CSS'],
+                        path: '/animated-accordian'
+                    },
+
+                    {
+                        name: 'Dynamic Dropdown Overflow Shadow',
+                        description: 'A dropdown with dynamic shadows to convery scrollable content.',
+                        image: require('@/assets/dropdown.png'),
+                        tags: ['Vanilla JS', 'CSS'],
+                        path: '/dropdown-shadow'
+                    }
+                ],
+
 
             }
         };

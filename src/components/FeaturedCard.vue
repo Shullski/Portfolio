@@ -1,5 +1,5 @@
 <template>
-<router-link class = 'card' :to="{ name: item.pathName, params:{ item: item } }" >
+<router-link class = 'card' :to="item.path" >
     <div class='image' :style="{ background: 'url('+ item.image +') center center / cover no-repeat'}"></div>
     <section class='content'>
         <h3>
